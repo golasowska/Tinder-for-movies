@@ -1,0 +1,46 @@
+{
+  "movies" : [
+    {
+      "id":   "1and3011",
+      "imageURL":  "https://t-eska.cdn.smcloud.net/common/c/Q/s/cQ2199277RwRw.jpg/ru-0-r-650,0-n-cQ2199277RwRw_gwiezdne_wojny_przebudzenie_mocy_sciezka_dzwiekowa_z_filmu.jpg"  ,
+      "title":   "Inferno",
+      "summary":   "Lorem   ipsum....",
+      "rating":   "5.3"
+    },
+    {
+      "id":   "2301abc",
+      "imageURL":  "https://t-eska.cdn.smcloud.net/common/c/Q/s/cQ2199277RwRw.jpg/ru-0-r-650,0-n-cQ2199277RwRw_gwiezdne_wojny_przebudzenie_mocy_sciezka_dzwiekowa_z_filmu.jpg" ,
+      "title":   " Star   Wars:   Episode   VII   -   The   Force   Awakens ",
+      "summary":   "Lorem   ipsum....",
+      "rating":   "8.2"
+    },
+    {
+      "id":   "1and3012",
+      "imageURL":  "https://t-eska.cdn.smcloud.net/common/c/Q/s/cQ2199277RwRw.jpg/ru-0-r-650,0-n-cQ2199277RwRw_gwiezdne_wojny_przebudzenie_mocy_sciezka_dzwiekowa_z_filmu.jpg"  ,
+      "title":   "Predator",
+      "summary":   "Lorem   ipsum....",
+      "rating":   "5.3"
+    },
+    {
+      "id":   "2301abd",
+      "imageURL":  "https://t-eska.cdn.smcloud.net/common/c/Q/s/cQ2199277RwRw.jpg/ru-0-r-650,0-n-cQ2199277RwRw_gwiezdne_wojny_przebudzenie_mocy_sciezka_dzwiekowa_z_filmu.jpg" ,
+      "title":   " Titanic ",
+      "summary":   "Lorem   ipsum....",
+      "rating":   "8.2"
+    },
+    {
+      "id":   "1and3013",
+      "imageURL":  "https://t-eska.cdn.smcloud.net/common/c/Q/s/cQ2199277RwRw.jpg/ru-0-r-650,0-n-cQ2199277RwRw_gwiezdne_wojny_przebudzenie_mocy_sciezka_dzwiekowa_z_filmu.jpg"  ,
+      "title":   "La vita e bella",
+      "summary":   "Lorem   ipsum....",
+      "rating":   "5.3"
+    },
+    {
+      "id":   "2301abd",
+      "imageURL":  "https://t-eska.cdn.smcloud.net/common/c/Q/s/cQ2199277RwRw.jpg/ru-0-r-650,0-n-cQ2199277RwRw_gwiezdne_wojny_przebudzenie_mocy_sciezka_dzwiekowa_z_filmu.jpg" ,
+      "title":   " Sex and The City ",
+      "summary":   "Lorem   ipsum....",
+      "rating":   "8.2"
+    }
+  ]
+}
