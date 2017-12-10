@@ -21,7 +21,8 @@ export default class DisplayMovie extends React.Component{
 
 
     return(
-      <div>
+      <div className='container'>
+        <div><i className='fa fa-video-camera' aria-hidden='true'></i></div>
         <img src={imageURL}/>
         <h2>{title}</h2>
         <p>{summary}</p>

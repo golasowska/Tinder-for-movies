@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "538fc5238a2c1d62c6f9"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "6d027175b6053da57863"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -32045,8 +32045,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// const url = 'http://localhost:3000/movies';
-var url = 'data.json';
+var url = 'http://localhost:3000/movies';
 
 var FetchMovie = function (_React$Component) {
   _inherits(FetchMovie, _React$Component);
@@ -32090,7 +32089,6 @@ var FetchMovie = function (_React$Component) {
 
     _this.handleAccept = function () {
       _this.acceptFetch();
-      console.log('to jest disik', _this);
     };
 
     _this.acceptFetch = function () {
@@ -32156,11 +32154,16 @@ var FetchMovie = function (_React$Component) {
     };
 
     _this.renderMyMovie = function () {
-      console.log('thisStateData', _this.state.data);
+      // console.log('thisStateData', this.state.data);
       if (_this.state.index >= _this.state.length) {
         return _react2.default.createElement(
           'div',
           null,
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement('i', { className: 'fa fa-video-camera', 'aria-hidden': 'true' })
+          ),
           _react2.default.createElement('img', { src: 'https://cdn.empireonline.com/jpg/70/0/0/640/480/aspectfit/0/0/0/0/0/0/c/features/59395a49f68e659c7aa3a1a8/The%20Silence%20of%20the%20Lambs.jpg' }),
           _react2.default.createElement(
             'h2',
@@ -32185,10 +32188,10 @@ var FetchMovie = function (_React$Component) {
   _createClass(FetchMovie, [{
     key: 'render',
     value: function render() {
-      console.log('to jest this', this); //this odnosi sie do komponentu
+      // console.log('to jest this',this); //this odnosi sie do komponentu
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'container' },
         _react2.default.createElement(_reactTouchEvents2.default, { onSwipe: this.handleSwipe }),
         this.renderMyMovie()
       );
@@ -33279,7 +33282,12 @@ var DisplayMovie = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'container' },
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement('i', { className: 'fa fa-video-camera', 'aria-hidden': 'true' })
+        ),
         _react2.default.createElement('img', { src: imageURL }),
         _react2.default.createElement(
           'h2',

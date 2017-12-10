@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactTouchEvents from 'react-touch-events';
 import DisplayMovie from './DisplayMovie.jsx';
-// const url = 'http://localhost:3000/movies';
-const url = 'data.json';
+const url = 'http://localhost:3000/movies';
 
 export default class FetchMovie extends React.Component{
 
@@ -14,7 +13,7 @@ export default class FetchMovie extends React.Component{
       datas: [],
       length: 0
     }
-  };
+  };  
 
   componentDidMount=()=>{
     // console.log('mounted');
@@ -51,7 +50,6 @@ export default class FetchMovie extends React.Component{
 
   handleAccept=()=>{
     this.acceptFetch();
-    console.log('to jest disik',this);
   }
 
 
@@ -121,10 +119,11 @@ export default class FetchMovie extends React.Component{
 
 
   renderMyMovie=()=>{
-    console.log('thisStateData', this.state.data);
+    // console.log('thisStateData', this.state.data);
     if(this.state.index>=this.state.length) {
       return(
         <div>
+          <div><i className='fa fa-video-camera' aria-hidden='true'></i></div>
           <img src= 'https://cdn.empireonline.com/jpg/70/0/0/640/480/aspectfit/0/0/0/0/0/0/c/features/59395a49f68e659c7aa3a1a8/The%20Silence%20of%20the%20Lambs.jpg'/>
           <h2>Baza pusta!!!!</h2>
         </div>
@@ -137,9 +136,9 @@ export default class FetchMovie extends React.Component{
 
 
   render(){
-    console.log('to jest this',this); //this odnosi sie do komponentu
+    // console.log('to jest this',this); //this odnosi sie do komponentu
     return(
-      <div>
+      <div className='container'>
         <ReactTouchEvents onSwipe={this.handleSwipe}/>
         {this.renderMyMovie()}
       </div>

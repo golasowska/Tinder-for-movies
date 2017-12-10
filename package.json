@@ -4,8 +4,10 @@
   "description": "Recipes Repository",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --output-public-path/public/",
+    "api": "json-server --watch data.json --port 3000"
+  },    
   "author": "",
   "license": "ISC",
   "dependencies": {
