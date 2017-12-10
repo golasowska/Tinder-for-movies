@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactTouchEvents from 'react-touch-events';
 import DisplayMovie from './DisplayMovie.jsx';
-const url = 'http://localhost:3000/movies';
+const url = 'https://localhost:3000/movies';
 
 export default class FetchMovie extends React.Component{
 
@@ -124,7 +124,7 @@ export default class FetchMovie extends React.Component{
     if(this.state.index>=this.state.length) {
       return(
         <div>
-          <img src= 'http://www.fukuleaks.org/web/wp-content/uploads/2014/05/shocked-kitten.jpeg'/>
+          <img src= 'https://www.fukuleaks.org/web/wp-content/uploads/2014/05/shocked-kitten.jpeg'/>
           <h2>Baza pusta!!!!</h2>
         </div>
       )
