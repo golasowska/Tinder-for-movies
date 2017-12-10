@@ -10,12 +10,13 @@ export default class FetchMovie extends React.Component{
     this.state={
       data: [],
       index: 0,
+      datas: [],
       length: 0
     }
   };
 
   componentDidMount=()=>{
-    console.log('mounted');
+    // console.log('mounted');
     this.FetchMovies();
     this.FetchLength();
   };
@@ -26,20 +27,25 @@ export default class FetchMovie extends React.Component{
         datas: datas,
         length: datas.length
       })
-      console.log('length', this.state.length );
     })
   }
 
   FetchMovies =()=> {
-    console.log(url);
-    return fetch(url).then(r=>r.json()).then (data=>{
-      console.log('movie data', data);
-      console.log('state w konstruktorze', this.state.index);
+    // console.log(url);
+    return fetch(url).then(r=>{
+      if(r.ok)
+      return r.json();
+      else
+      throw new Error ('Errors')
+    }).then (data=>{
+      // console.log('movie data', data);
+      // console.log('state w konstruktorze', this.state.index);
       this.setState({
         data: data[this.state.index]
       })
+    }).catch(err => {
+      console.log(err);
     })
-
   };
 
   handleAccept=()=>{
@@ -47,11 +53,23 @@ export default class FetchMovie extends React.Component{
     index=index.toString().slice();
     let counter = parseInt(index);
     counter++;
+    const vote = {
+      "vote": "accept"
+    };
     this.setState({
       index: counter
     });
     this.FetchMovies();
-    console.log('updated state', this.state.index);
+    return fetch(url +'/'+ this.state.data.id,{
+      method: 'PUT',
+      body: JSON.stringify(vote),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res=>{
+      return res;
+    });
+    // console.log('updated state', this.state.index);
   };
 
   handleReject=()=>{
@@ -59,11 +77,23 @@ export default class FetchMovie extends React.Component{
     index=index.toString().slice();
     let counter = parseInt(index);
     counter++;
+    const vote = {
+      "vote": "reject"
+    };
     this.setState({
       index: counter
     });
     this.FetchMovies();
-    console.log('updated state', this.state.index);
+    return fetch(url +'/'+ this.state.data.id,{
+      method: 'PUT',
+      body: JSON.stringify(vote),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(res=>{
+      return res;
+    });
+    // console.log('updated state', this.state.index);
   }
 
 
