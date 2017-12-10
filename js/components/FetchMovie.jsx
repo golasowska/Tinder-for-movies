@@ -125,7 +125,7 @@ export default class FetchMovie extends React.Component{
     if(this.state.index>=this.state.length) {
       return(
         <div>
-          <img src= 'https://www.fukuleaks.org/web/wp-content/uploads/2014/05/shocked-kitten.jpeg'/>
+          <img src= 'https://cdn.empireonline.com/jpg/70/0/0/640/480/aspectfit/0/0/0/0/0/0/c/features/59395a49f68e659c7aa3a1a8/The%20Silence%20of%20the%20Lambs.jpg'/>
           <h2>Baza pusta!!!!</h2>
         </div>
       )
