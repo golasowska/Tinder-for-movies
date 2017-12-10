@@ -27,8 +27,8 @@ export default class DisplayMovie extends React.Component{
         <p>{summary}</p>
         <h4>{rating}</h4>
         <div>
-          <button onClick={this.rejectMovie} className='btn btn-danger'>I don't like</button>
-          <button onClick={this.acceptMovie} className='btn btn-primary'>I like</button>
+            <button onClick={this.rejectMovie} className='btn btn-danger'>Don't like</button>
+            <button onClick={this.acceptMovie} className='btn btn-primary'>I like</button>
         </div>
       </div>
     )

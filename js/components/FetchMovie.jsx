@@ -1,9 +1,9 @@
 import React from 'react';
+import ReactTouchEvents from 'react-touch-events';
 import DisplayMovie from './DisplayMovie.jsx';
 const url = 'http://localhost:3000/movies';
+
 export default class FetchMovie extends React.Component{
-
-
 
   constructor (props){
     super(props);
@@ -49,6 +49,12 @@ export default class FetchMovie extends React.Component{
   };
 
   handleAccept=()=>{
+    this.acceptFetch();
+    console.log('to jest disik',this);
+  }
+
+
+  acceptFetch=()=>{
     let index=this.state.index;
     index=index.toString().slice();
     let counter = parseInt(index);
@@ -73,6 +79,10 @@ export default class FetchMovie extends React.Component{
   };
 
   handleReject=()=>{
+    this.rejectFetch();
+  }
+
+  rejectFetch=()=>{
     let index=this.state.index;
     index=index.toString().slice();
     let counter = parseInt(index);
@@ -94,6 +104,17 @@ export default class FetchMovie extends React.Component{
       return res;
     });
     // console.log('updated state', this.state.index);
+  };
+
+  handleSwipe=(direction)=>{
+    switch(direction) {
+      case 'right':
+      return this.acceptFetch();
+      case 'left':
+      return this.rejectFetch();
+      console.log(`you swiped S{direction}`);
+    }
+
   }
 
 
@@ -101,7 +122,13 @@ export default class FetchMovie extends React.Component{
   renderMyMovie=()=>{
     console.log('thisStateData', this.state.data);
     if(this.state.index>=this.state.length) {
-      return <h2>Baza pusta!!!!</h2>
+      return(
+        <div>
+          <img src= 'http://www.fukuleaks.org/web/wp-content/uploads/2014/05/shocked-kitten.jpeg'/>
+          <h2>Baza pusta!!!!</h2>
+        </div>
+      )
+
     }else {
     return <DisplayMovie key={this.state.data.id} data={this.state.data} handleAccept={this.handleAccept} handleReject={this.handleReject}/>
     };
@@ -112,6 +139,7 @@ export default class FetchMovie extends React.Component{
     console.log('to jest this',this); //this odnosi sie do komponentu
     return(
       <div>
+        <ReactTouchEvents onSwipe={this.handleSwipe}/>
         {this.renderMyMovie()}
       </div>
 
