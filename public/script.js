@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "6d027175b6053da57863"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "dd070fa977452441bdad"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -32158,17 +32158,35 @@ var FetchMovie = function (_React$Component) {
       if (_this.state.index >= _this.state.length) {
         return _react2.default.createElement(
           'div',
-          null,
+          { className: 'container' },
           _react2.default.createElement(
             'div',
-            null,
-            _react2.default.createElement('i', { className: 'fa fa-video-camera', 'aria-hidden': 'true' })
+            { className: 'row justify-content-center align-items-center header' },
+            _react2.default.createElement('i', { className: 'fa fa-video-camera col-2 text-center', 'aria-hidden': 'true' }),
+            _react2.default.createElement(
+              'h1',
+              { className: 'text-center col-8 text-center' },
+              'Tinder for movies'
+            ),
+            _react2.default.createElement('i', { className: 'fa fa-cog col-2 text-center', 'aria-hidden': 'true' })
           ),
-          _react2.default.createElement('img', { src: 'https://cdn.empireonline.com/jpg/70/0/0/640/480/aspectfit/0/0/0/0/0/0/c/features/59395a49f68e659c7aa3a1a8/The%20Silence%20of%20the%20Lambs.jpg' }),
           _react2.default.createElement(
-            'h2',
-            null,
-            'Baza pusta!!!!'
+            'div',
+            { className: 'row justify-content-center' },
+            _react2.default.createElement(
+              'div',
+              { className: 'col text-center movieImg' },
+              _react2.default.createElement('img', { className: 'rounded', src: 'https://cdn.empireonline.com/jpg/70/0/0/640/480/aspectfit/0/0/0/0/0/0/c/features/59395a49f68e659c7aa3a1a8/The%20Silence%20of%20the%20Lambs.jpg' })
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'row' },
+            _react2.default.createElement(
+              'h2',
+              { className: 'col text-center title' },
+              'Data base is empty!!!'
+            )
           )
         );
       } else {
@@ -33285,36 +33303,62 @@ var DisplayMovie = function (_React$Component) {
         { className: 'container' },
         _react2.default.createElement(
           'div',
-          null,
-          _react2.default.createElement('i', { className: 'fa fa-video-camera', 'aria-hidden': 'true' })
-        ),
-        _react2.default.createElement('img', { src: imageURL }),
-        _react2.default.createElement(
-          'h2',
-          null,
-          title
-        ),
-        _react2.default.createElement(
-          'p',
-          null,
-          summary
-        ),
-        _react2.default.createElement(
-          'h4',
-          null,
-          rating
+          { className: 'row justify-content-center align-items-center header' },
+          _react2.default.createElement('i', { className: 'fa fa-video-camera col-2 text-center', 'aria-hidden': 'true' }),
+          _react2.default.createElement(
+            'h1',
+            { className: 'text-center col-8 text-center' },
+            'Tinder for movies'
+          ),
+          _react2.default.createElement('i', { className: 'fa fa-cog col-2 text-center', 'aria-hidden': 'true' })
         ),
         _react2.default.createElement(
           'div',
-          null,
+          { className: 'row justify-content-center' },
+          _react2.default.createElement(
+            'div',
+            { className: 'col text-center movieImg' },
+            _react2.default.createElement('img', { className: 'rounded', src: imageURL })
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'row' },
+          _react2.default.createElement(
+            'h2',
+            { className: 'col text-center title' },
+            title
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'row' },
+          _react2.default.createElement(
+            'div',
+            { className: 'col text-center descr' },
+            summary
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'row' },
+          _react2.default.createElement(
+            'span',
+            { className: 'col text-center raiting' },
+            rating
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'row justify-content-center buttons  align-self-end ' },
           _react2.default.createElement(
             'button',
-            { onClick: this.rejectMovie, className: 'btn btn-danger' },
-            'Don\'t like'
+            { onClick: this.rejectMovie, className: 'btn btn-outline-danger btn-lg col-4 align-self-end ' },
+            'Don\'t'
           ),
           _react2.default.createElement(
             'button',
-            { onClick: this.acceptMovie, className: 'btn btn-primary' },
+            { onClick: this.acceptMovie, className: 'btn btn-outline-primary btn-lg col-4 align-self-end ' },
             'I like'
           )
         )

@@ -13,7 +13,7 @@ export default class FetchMovie extends React.Component{
       datas: [],
       length: 0
     }
-  };  
+  };
 
   componentDidMount=()=>{
     // console.log('mounted');
@@ -122,10 +122,20 @@ export default class FetchMovie extends React.Component{
     // console.log('thisStateData', this.state.data);
     if(this.state.index>=this.state.length) {
       return(
-        <div>
-          <div><i className='fa fa-video-camera' aria-hidden='true'></i></div>
-          <img src= 'https://cdn.empireonline.com/jpg/70/0/0/640/480/aspectfit/0/0/0/0/0/0/c/features/59395a49f68e659c7aa3a1a8/The%20Silence%20of%20the%20Lambs.jpg'/>
-          <h2>Baza pusta!!!!</h2>
+        <div className='container'>
+          <div className='row justify-content-center align-items-center header'>
+            <i className='fa fa-video-camera col-2 text-center' aria-hidden='true'></i>
+            <h1 className='text-center col-8 text-center'>Tinder for movies</h1>
+            <i className='fa fa-cog col-2 text-center' aria-hidden="true"></i>
+          </div>
+          <div className='row justify-content-center'>
+            <div className='col text-center movieImg'>
+              <img className='rounded' src='https://cdn.empireonline.com/jpg/70/0/0/640/480/aspectfit/0/0/0/0/0/0/c/features/59395a49f68e659c7aa3a1a8/The%20Silence%20of%20the%20Lambs.jpg'/>
+            </div>
+          </div>
+            <div className='row'>
+              <h2 className='col text-center title'>Data base is empty!!!</h2>
+            </div>
         </div>
       )
 

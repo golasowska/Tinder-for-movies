@@ -5,3 +5,58 @@
 
 img, video, canvas {
   max-width: 100%; }
+
+button.btn.btn-outline-danger.btn-lg.col-4,
+button.btn.btn-outline-primary.btn-lg.col-4 {
+  width: 40%;
+  margin: 5%; }
+
+container {
+  height: 100%; }
+
+.header h1 {
+  font-size: 24px;
+  padding: 15px 0; }
+  @media (max-width: 430px) {
+    .header h1 {
+      font-size: 18px; } }
+  @media (min-width: 992px) {
+    .header h1 {
+      font-size: 60px; } }
+
+i.fa.fa-video-camera.col-2,
+i.fa.fa-cog.col-2 {
+  font-size: 45px; }
+  @media (min-width: 992px) {
+    i.fa.fa-video-camera.col-2,
+    i.fa.fa-cog.col-2 {
+      font-size: 60px; } }
+
+.movieImg {
+  margin: 10px 0 40px 0; }
+
+.buttons {
+  height: 120px; }
+
+.title,
+.descr,
+.raiting {
+  padding-bottom: 10px; }
+
+.title {
+  font-size: 22px; }
+  @media (min-width: 992px) {
+    .title {
+      font-size: 50px; } }
+
+.descr {
+  font-size: 18px; }
+  @media (min-width: 992px) {
+    .descr {
+      font-size: 38px; } }
+
+.raiting {
+  font-size: 24px; }
+  @media (min-width: 992px) {
+    .raiting {
+      font-size: 50px; } }

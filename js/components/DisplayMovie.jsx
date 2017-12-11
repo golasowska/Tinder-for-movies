@@ -22,14 +22,28 @@ export default class DisplayMovie extends React.Component{
 
     return(
       <div className='container'>
-        <div><i className='fa fa-video-camera' aria-hidden='true'></i></div>
-        <img src={imageURL}/>
-        <h2>{title}</h2>
-        <p>{summary}</p>
-        <h4>{rating}</h4>
-        <div>
-            <button onClick={this.rejectMovie} className='btn btn-danger'>Don't like</button>
-            <button onClick={this.acceptMovie} className='btn btn-primary'>I like</button>
+        <div className='row justify-content-center align-items-center header'>
+          <i className='fa fa-video-camera col-2 text-center' aria-hidden='true'></i>
+          <h1 className='text-center col-8 text-center'>Tinder for movies</h1>
+          <i className='fa fa-cog col-2 text-center' aria-hidden="true"></i>
+        </div>
+        <div className='row justify-content-center'>
+          <div className='col text-center movieImg'>
+            <img className='rounded' src={imageURL}/>
+          </div>
+        </div>
+        <div className='row'>
+          <h2 className='col text-center title'>{title}</h2>
+        </div>
+        <div className='row'>
+          <div className='col text-center descr'>{summary}</div>
+        </div>
+        <div className='row'>
+          <span className='col text-center raiting'>{rating}</span>
+        </div>
+        <div className='row justify-content-center buttons  align-self-end '>
+            <button onClick={this.rejectMovie} className='btn btn-outline-danger btn-lg col-4 align-self-end '>Don't</button>
+            <button onClick={this.acceptMovie} className='btn btn-outline-primary btn-lg col-4 align-self-end '>I like</button>
         </div>
       </div>
     )
