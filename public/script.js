@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "dd070fa977452441bdad"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "43f6abbbd34c5caff74c"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -32045,7 +32045,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var url = 'http://localhost:3000/movies';
+// const url = 'http://localhost:3000/movies';
+var url = 'https://firebasestorage.googleapis.com/v0/b/data-6fcae.appspot.com/o/data.json?alt=media&token=6b7b436d-d4cf-4a67-bd10-16884623aaab';
 
 var FetchMovie = function (_React$Component) {
   _inherits(FetchMovie, _React$Component);
@@ -32067,20 +32068,20 @@ var FetchMovie = function (_React$Component) {
       }).then(function (datas) {
         _this.setState({
           datas: datas,
-          length: datas.length
+          length: datas.movies.length
         });
       });
     };
 
     _this.FetchMovies = function () {
-      // console.log(url);
+      console.log(url);
       return fetch(url).then(function (r) {
         if (r.ok) return r.json();else throw new Error('Errors');
       }).then(function (data) {
-        // console.log('movie data', data);
+        console.log('movie data', data);
         // console.log('state w konstruktorze', this.state.index);
         _this.setState({
-          data: data[_this.state.index]
+          data: data.movies[_this.state.index]
         });
       }).catch(function (err) {
         console.log(err);
@@ -32103,7 +32104,7 @@ var FetchMovie = function (_React$Component) {
         index: counter
       });
       _this.FetchMovies();
-      return fetch(url + '/' + _this.state.data.id, {
+      return fetch(url + '/' + _this.state.data.movies.id, {
         method: 'PUT',
         body: JSON.stringify(vote),
         headers: {
@@ -32131,7 +32132,7 @@ var FetchMovie = function (_React$Component) {
         index: counter
       });
       _this.FetchMovies();
-      return fetch(url + '/' + _this.state.data.id, {
+      return fetch(url + '/' + _this.state.data.movies.id, {
         method: 'PUT',
         body: JSON.stringify(vote),
         headers: {

@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactTouchEvents from 'react-touch-events';
 import DisplayMovie from './DisplayMovie.jsx';
-const url = 'http://localhost:3000/movies';
+// const url = 'http://localhost:3000/movies';
+const url = 'https://firebasestorage.googleapis.com/v0/b/data-6fcae.appspot.com/o/data.json?alt=media&token=6b7b436d-d4cf-4a67-bd10-16884623aaab';
 
 export default class FetchMovie extends React.Component{
 
@@ -25,23 +26,23 @@ export default class FetchMovie extends React.Component{
     return fetch(url).then(r=>r.json()).then (datas=>{
       this.setState({
         datas: datas,
-        length: datas.length
+        length: datas.movies.length
       })
     })
   }
 
   FetchMovies =()=> {
-    // console.log(url);
+    console.log(url);
     return fetch(url).then(r=>{
       if(r.ok)
       return r.json();
       else
       throw new Error ('Errors')
     }).then (data=>{
-      // console.log('movie data', data);
+      console.log('movie data', data);
       // console.log('state w konstruktorze', this.state.index);
       this.setState({
-        data: data[this.state.index]
+        data: data.movies[this.state.index]
       })
     }).catch(err => {
       console.log(err);
@@ -65,7 +66,7 @@ export default class FetchMovie extends React.Component{
       index: counter
     });
     this.FetchMovies();
-    return fetch(url +'/'+ this.state.data.id,{
+    return fetch(url +'/'+ this.state.data.movies.id,{
       method: 'PUT',
       body: JSON.stringify(vote),
       headers: {
@@ -93,7 +94,7 @@ export default class FetchMovie extends React.Component{
       index: counter
     });
     this.FetchMovies();
-    return fetch(url +'/'+ this.state.data.id,{
+    return fetch(url +'/'+ this.state.data.movies.id,{
       method: 'PUT',
       body: JSON.stringify(vote),
       headers: {
