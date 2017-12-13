@@ -16,10 +16,7 @@ export default class DisplayMovie extends React.Component{
   }
 
   render(){
-    // console.log('DisplayMovie ma propsy', this.props.data);
     const{imageURL, title, summary,rating} = this.props.data;
-
-
     return(
       <div className='container'>
         <div className='row justify-content-center align-items-center header'>

@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactTouchEvents from 'react-touch-events';
 import DisplayMovie from './DisplayMovie.jsx';
-// const url = 'http://localhost:3000/movies';
-const url = 'https://firebasestorage.googleapis.com/v0/b/data-6fcae.appspot.com/o/data.json?alt=media&token=6b7b436d-d4cf-4a67-bd10-16884623aaab';
+const url = 'http://localhost:3000/movies';
 
 export default class FetchMovie extends React.Component{
 
@@ -17,7 +16,6 @@ export default class FetchMovie extends React.Component{
   };
 
   componentDidMount=()=>{
-    // console.log('mounted');
     this.FetchMovies();
     this.FetchLength();
   };
@@ -26,23 +24,20 @@ export default class FetchMovie extends React.Component{
     return fetch(url).then(r=>r.json()).then (datas=>{
       this.setState({
         datas: datas,
-        length: datas.movies.length
+        length: datas.length
       })
     })
   }
 
   FetchMovies =()=> {
-    console.log(url);
     return fetch(url).then(r=>{
       if(r.ok)
       return r.json();
       else
       throw new Error ('Errors')
     }).then (data=>{
-      console.log('movie data', data);
-      // console.log('state w konstruktorze', this.state.index);
       this.setState({
-        data: data.movies[this.state.index]
+        data: data[this.state.index]
       })
     }).catch(err => {
       console.log(err);
@@ -66,7 +61,7 @@ export default class FetchMovie extends React.Component{
       index: counter
     });
     this.FetchMovies();
-    return fetch(url +'/'+ this.state.data.movies.id,{
+    return fetch(url +'/'+ this.state.data.id,{
       method: 'PUT',
       body: JSON.stringify(vote),
       headers: {
@@ -75,7 +70,6 @@ export default class FetchMovie extends React.Component{
     }).then(res=>{
       return res;
     });
-    // console.log('updated state', this.state.index);
   };
 
   handleReject=()=>{
@@ -94,7 +88,7 @@ export default class FetchMovie extends React.Component{
       index: counter
     });
     this.FetchMovies();
-    return fetch(url +'/'+ this.state.data.movies.id,{
+    return fetch(url +'/'+ this.state.data.id,{
       method: 'PUT',
       body: JSON.stringify(vote),
       headers: {
@@ -103,7 +97,6 @@ export default class FetchMovie extends React.Component{
     }).then(res=>{
       return res;
     });
-    // console.log('updated state', this.state.index);
   };
 
   handleSwipe=(direction)=>{
@@ -112,15 +105,12 @@ export default class FetchMovie extends React.Component{
       return this.acceptFetch();
       case 'left':
       return this.rejectFetch();
-      console.log(`you swiped S{direction}`);
     }
-
   }
 
 
 
   renderMyMovie=()=>{
-    // console.log('thisStateData', this.state.data);
     if(this.state.index>=this.state.length) {
       return(
         <div className='container'>
@@ -140,20 +130,18 @@ export default class FetchMovie extends React.Component{
         </div>
       )
 
-    }else {
+    }else{
     return <DisplayMovie key={this.state.data.id} data={this.state.data} handleAccept={this.handleAccept} handleReject={this.handleReject}/>
     };
     }
 
 
   render(){
-    // console.log('to jest this',this); //this odnosi sie do komponentu
     return(
       <div className='container'>
         <ReactTouchEvents onSwipe={this.handleSwipe}/>
         {this.renderMyMovie()}
       </div>
-
     )
   }
 }

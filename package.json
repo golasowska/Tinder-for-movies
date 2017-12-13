@@ -7,12 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --output-public-path/public/",
     "api": "json-server --watch data.json --port 3000"
-  },    
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "css-loader": "^0.28.5",
-    "firebase": "^4.6.2",
     "gulp": "^3.9.1",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.1",

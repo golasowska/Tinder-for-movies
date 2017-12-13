@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "43f6abbbd34c5caff74c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "396d4e8d32af3a9cba22"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -32045,8 +32045,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// const url = 'http://localhost:3000/movies';
-var url = 'https://firebasestorage.googleapis.com/v0/b/data-6fcae.appspot.com/o/data.json?alt=media&token=6b7b436d-d4cf-4a67-bd10-16884623aaab';
+var url = 'http://localhost:3000/movies';
 
 var FetchMovie = function (_React$Component) {
   _inherits(FetchMovie, _React$Component);
@@ -32057,7 +32056,6 @@ var FetchMovie = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (FetchMovie.__proto__ || Object.getPrototypeOf(FetchMovie)).call(this, props));
 
     _this.componentDidMount = function () {
-      // console.log('mounted');
       _this.FetchMovies();
       _this.FetchLength();
     };
@@ -32068,20 +32066,17 @@ var FetchMovie = function (_React$Component) {
       }).then(function (datas) {
         _this.setState({
           datas: datas,
-          length: datas.movies.length
+          length: datas.length
         });
       });
     };
 
     _this.FetchMovies = function () {
-      console.log(url);
       return fetch(url).then(function (r) {
         if (r.ok) return r.json();else throw new Error('Errors');
       }).then(function (data) {
-        console.log('movie data', data);
-        // console.log('state w konstruktorze', this.state.index);
         _this.setState({
-          data: data.movies[_this.state.index]
+          data: data[_this.state.index]
         });
       }).catch(function (err) {
         console.log(err);
@@ -32104,7 +32099,7 @@ var FetchMovie = function (_React$Component) {
         index: counter
       });
       _this.FetchMovies();
-      return fetch(url + '/' + _this.state.data.movies.id, {
+      return fetch(url + '/' + _this.state.data.id, {
         method: 'PUT',
         body: JSON.stringify(vote),
         headers: {
@@ -32113,7 +32108,6 @@ var FetchMovie = function (_React$Component) {
       }).then(function (res) {
         return res;
       });
-      // console.log('updated state', this.state.index);
     };
 
     _this.handleReject = function () {
@@ -32132,7 +32126,7 @@ var FetchMovie = function (_React$Component) {
         index: counter
       });
       _this.FetchMovies();
-      return fetch(url + '/' + _this.state.data.movies.id, {
+      return fetch(url + '/' + _this.state.data.id, {
         method: 'PUT',
         body: JSON.stringify(vote),
         headers: {
@@ -32141,7 +32135,6 @@ var FetchMovie = function (_React$Component) {
       }).then(function (res) {
         return res;
       });
-      // console.log('updated state', this.state.index);
     };
 
     _this.handleSwipe = function (direction) {
@@ -32150,12 +32143,10 @@ var FetchMovie = function (_React$Component) {
           return _this.acceptFetch();
         case 'left':
           return _this.rejectFetch();
-          console.log('you swiped S{direction}');
       }
     };
 
     _this.renderMyMovie = function () {
-      // console.log('thisStateData', this.state.data);
       if (_this.state.index >= _this.state.length) {
         return _react2.default.createElement(
           'div',
@@ -32207,7 +32198,6 @@ var FetchMovie = function (_React$Component) {
   _createClass(FetchMovie, [{
     key: 'render',
     value: function render() {
-      // console.log('to jest this',this); //this odnosi sie do komponentu
       return _react2.default.createElement(
         'div',
         { className: 'container' },
@@ -33291,13 +33281,11 @@ var DisplayMovie = function (_React$Component) {
   _createClass(DisplayMovie, [{
     key: 'render',
     value: function render() {
-      // console.log('DisplayMovie ma propsy', this.props.data);
       var _props$data = this.props.data,
           imageURL = _props$data.imageURL,
           title = _props$data.title,
           summary = _props$data.summary,
           rating = _props$data.rating;
-
 
       return _react2.default.createElement(
         'div',
